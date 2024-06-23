@@ -9,3 +9,4 @@
 **/__pycache__/
 **test**.png
 /src/**test**
+jobs.sh
