@@ -2,7 +2,7 @@
 A project designed to parse Reddit subreddit pages asynchronously and provide a convenient way to store the retrieved data for future use
 
 
-![Reddit Parser Architecture](https://github.com/Cavidan-oss/reddit_parser/blob/ddcc1c5297ad72da77a8d8e579670b0011a86a2d/documentation/RedditArchitecture.png)
+![Reddit Parser Architecture](https://github.com/Cavidan-oss/reddit_async_parser/blob/7feb3a884166e58f5e89bed8b00dcedf70353dc7/documentation/RedditArchitecture.png)
 
 
 
@@ -32,7 +32,7 @@ To install the Reddit Asynchronous Parser, comprehensive installation process ne
 #### 1. Copying repo
 Clone the repository from GitHub.
 ```
-git clone https://github.com/Cavidan-oss/reddit_parser.git
+https://github.com/Cavidan-oss/reddit_async_parser.git
 ```
 #### 2. Navigating
 Navigate to the project directory.
@@ -148,7 +148,7 @@ This process initiates by downloading the necessary artifacts and proceeds to cr
 
 
 
-![Spark Interface Example](https://github.com/Cavidan-oss/reddit_parser/blob/3a773be30ce1106c91d7743b4080fa0df394a69d/documentation/spark_interface.png)
+![Spark Interface Example](https://github.com/Cavidan-oss/reddit_async_parser/blob/7feb3a884166e58f5e89bed8b00dcedf70353dc7/documentation/spark_interface.png)
 
 To initiate the application, utilize the command-line interface provided by the main function within the /src folder. The provided script scrapes the GRE subreddit and retrieves data from a latest single post, as indicated by the -l 1 flag. Feel free to explore different flags by indicating --help flag.
 
@@ -158,13 +158,13 @@ python src\main.py -n r/GRE/ -l 1
 
 ```
 
-![Command Line Interface Parser Example](https://github.com/Cavidan-oss/reddit_parser/blob/98ac386f7745b06966015484dfd866bd6a6cddc4/documentation/result_of_parser_command_line.png)
+![Command Line Interface Parser Example](https://github.com/Cavidan-oss/reddit_async_parser/blob/7feb3a884166e58f5e89bed8b00dcedf70353dc7/documentation/result_of_parser_command_line.png)
 
 
  
 To verify the parsed data, navigate to the control center (defaulted to localhost:9021) under the topic and messages section. However, to push the retrieved data into the appropriate MongoDB collections for storage, the Apache Spark instance must be triggered. For user convenience, triggering spark_src/spark_main.py suffices.
 
-![Control Center Example](https://github.com/Cavidan-oss/reddit_parser/blob/eea5a9515b46836a67199fc00e48c99ba05cf23d/documentation/control_center_image.png)
+![Control Center Example](https://github.com/Cavidan-oss/reddit_async_parser/blob/7feb3a884166e58f5e89bed8b00dcedf70353dc7/documentation/control_center_image.png)
 
 
 
