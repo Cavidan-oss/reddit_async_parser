@@ -109,7 +109,7 @@ Firstly we need to create a network named Reddit for. It can be created using co
 
 
 ```bash
-docker create network Reddit
+docker network create Reddit 
 ```
 
 Next, create a custom image for Apache Spark, which includes additional libraries. Build the image using the following commands. Ensure to tag it as custom_spark_app, as it is used inside the docker-compose.yaml file:
@@ -139,6 +139,17 @@ Once installed, you can utilize the command-line interfaces to interact with the
 
 To interact with the parser, navigate to the file located at src/scrapers/reddit_kafka_publisher.py. However, to directly access the Spark application, users must enter the Spark master environment. This environment includes three mounted volumes: scripts, spark_apps, and spark_data. While spark_apps and spark_data are system-critical and located within the /opt folder, scripts is mounted into the /temp folder. To trigger the Spark application, users can execute spark_src/spark_main.py, which initiates the Spark application using docker exec along with additional parameters. Alternatively, if users wish to provide specific details directly, they can execute spark_src/scripts/streaming_main.py alongside the docker exec command.
 
+
+``` bash
+python spark_src/spark_main.py
+
+```
+This process initiates by downloading the necessary artifacts and proceeds to create structured streaming processes to move the data into MongoDB. It is important to note that the Spark instance can only access the data from its starting point. Therefore, users should start the Spark application first before proceeding with parsing subreddits.
+
+
+
+![Spark Interface Example](https://github.com/Cavidan-oss/reddit_parser/blob/3a773be30ce1106c91d7743b4080fa0df394a69d/documentation/spark_interface.png)
+
 To initiate the application, utilize the command-line interface provided by the main function within the /src folder. The provided script scrapes the GRE subreddit and retrieves data from a latest single post, as indicated by the -l 1 flag. Feel free to explore different flags by indicating --help flag.
 
 
@@ -157,15 +168,6 @@ To verify the parsed data, navigate to the control center (defaulted to localhos
 
 
 
-``` bash
-python spark_src/spark_main.py
-
-```
-This process initiates by downloading the necessary artifacts and proceeds to create structured streaming processes to move the data into MongoDB. It is important to note that the Spark instance can only access the data from its starting point. Therefore, users should start the Spark application first before proceeding with parsing subreddits.
-
-
-
-![Spark Interface Example](https://github.com/Cavidan-oss/reddit_parser/blob/3a773be30ce1106c91d7743b4080fa0df394a69d/documentation/spark_interface.png)
 
 
 ## Contributing 
