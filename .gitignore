@@ -1,0 +1,11 @@
+/venv
+/env
+.env
+/src/test.py
+/secrets
+/test_parsed_data
+/spark_scripts/spark_apps
+/spark_scripts/spark_data
+**/__pycache__/
+**test**.png
+/src/**test**
